@@ -10,15 +10,17 @@ const socials = {
 }
 
 const services = [
-  { number: '01', title: 'Sonido', description: 'Un sonido que se siente y mantiene la energía de tu celebración.' },
-  { number: '02', title: 'Iluminación', description: 'Color, movimiento y ambiente para transformar cada espacio.' },
-  { number: '03', title: 'Eventos', description: 'Una experiencia pensada para reunir a todos alrededor de la música.' },
+  { title: 'Sonido', description: 'Un sonido que se siente y mantiene la energía de tu celebración.' },
+  { title: 'Iluminación', description: 'Color, movimiento y ambiente para transformar cada espacio.' },
+  { title: 'Eventos', description: 'Una experiencia pensada para reunir a todos alrededor de la música.' },
 ]
 
 const gallery = [
-  { src: asset('assets/859683142_122238164402318142_7978589201987121749_n.jpg'), alt: 'Promoción de Fusión Zac con equipo de sonido e iluminación' },
-  { src: asset('assets/866081418_122238713222318142_2344235169799620781_n.jpg'), alt: 'Fusión Zac en Zacatecas con su identidad gráfica y redes sociales' },
-  { src: asset('assets/866081418_122238713222318142_2344235169799620781_n (1).jpg'), alt: 'Arte promocional de Fusión Zac' },
+  { src: asset('images/fusion-zac-baile-1.webp'), alt: 'Amigos bailando en una celebración con luces cálidas y azules' },
+  { src: asset('images/fusion-zac-baile-2.webp'), alt: 'Invitados disfrutando juntos la pista de baile' },
+  { src: asset('images/fusion-zac-hero.webp'), alt: 'Público bailando junto a la Catedral de Zacatecas iluminada' },
+  { src: asset('assets/859683142_122238164402318142_7978589201987121749_n.jpg'), alt: 'Equipo de sonido e iluminación de Fusión Zac' },
+  { src: asset('assets/866081418_122238713222318142_2344235169799620781_n.jpg'), alt: 'Arte de Fusión Zac con Zacatecas y la Catedral' },
 ]
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -44,10 +46,10 @@ function App() {
 
       <main>
         <section className="hero" id="inicio" aria-labelledby="hero-title">
-          <img className="hero-image" src={asset('images/fusion-zac-hero.png')} alt="Personas bailando en una celebración junto a la Catedral de Zacatecas iluminada" fetchPriority="high" />
+          <img className="hero-image" src={asset('images/fusion-zac-hero.webp')} alt="Personas bailando en una celebración junto a la Catedral de Zacatecas iluminada" fetchPriority="high" />
           <div className="hero-shade" />
           <div className="hero-content">
-            <p className="eyebrow"><span className="eyebrow-dot" /> SONIDO · LUZ · CELEBRACIÓN</p>
+          <p className="eyebrow"><span className="eyebrow-dot" /> SONIDO · LUZ · CELEBRACIÓN</p>
             <h1 id="hero-title">Que tu evento<br />se <em>sienta.</em></h1>
             <p className="hero-copy">Creamos el ambiente para esos momentos que quieres volver a vivir.</p>
             <div className="hero-actions">
@@ -60,7 +62,7 @@ function App() {
         </section>
 
         <section className="intro section-wrap" id="nosotros">
-          <div className="intro-label"><span className="section-index">01 /</span> CERCA DE TI SIEMPRE</div>
+          <div className="intro-label">CERCA DE TI SIEMPRE</div>
           <div className="intro-main">
             <h2>La música reúne.<br /><span>Nosotros ponemos</span><br />el ambiente.</h2>
             <div className="intro-aside"><p>En Fusión Zac hacemos que cada celebración tenga su propio ritmo. Sonido e iluminación para disfrutar el momento, desde la primera canción hasta la última.</p><a className="under-link" href={socials.instagram} target="_blank" rel="noreferrer">Síguenos en Instagram <Arrow diagonal /></a></div>
@@ -69,24 +71,24 @@ function App() {
         </section>
 
         <section className="services section-wrap" id="servicios">
-          <div className="section-heading"><div><span className="section-index">02 / LO QUE HACEMOS</span><h2>Tu celebración,<br /><em>a otro nivel.</em></h2></div><p>Nos encargamos de la atmósfera para que tú te dediques a disfrutar.</p></div>
-          <div className="service-list">{services.map((service) => <article className="service-row" key={service.number}><span className="service-number">{service.number}</span><h3>{service.title}</h3><p>{service.description}</p><span className="service-mark" aria-hidden="true">✳</span></article>)}</div>
+          <div className="section-heading"><div><span className="section-index">LO QUE HACEMOS</span><h2>Tu celebración,<br /><em>a otro nivel.</em></h2></div><p>Nos encargamos de la atmósfera para que tú te dediques a disfrutar.</p></div>
+          <div className="service-list">{services.map((service) => <article className="service-row" key={service.title}><h3>{service.title}</h3><p>{service.description}</p><span className="service-mark" aria-hidden="true">✳</span></article>)}</div>
         </section>
 
         <section className="statement" aria-label="Una celebración para recordar">
-          <div className="statement-bg"><img src={asset('images/fusion-zac-hero.png')} alt="" loading="lazy" /></div>
+          <div className="statement-bg"><img src={asset('images/fusion-zac-hero.webp')} alt="" loading="lazy" /></div>
           <p className="eyebrow"><span className="eyebrow-dot" /> HAY NOCHES QUE SE QUEDAN CONTIGO</p>
           <h2>Sube el volumen.<br /><em>Vive el momento.</em></h2>
           <a className="button button-outline" href={whatsapp} target="_blank" rel="noreferrer">Planeemos tu fecha <Arrow diagonal /></a>
         </section>
 
         <section className="gallery section-wrap" id="galeria">
-          <div className="gallery-heading"><div><span className="section-index">03 / MOMENTOS FUSIÓN</span><h2>Así se vive.</h2></div><a className="under-link" href={socials.tiktok} target="_blank" rel="noreferrer">Más en TikTok <Arrow diagonal /></a></div>
-          <div className="gallery-grid">{gallery.map((item, index) => <figure className={`gallery-item gallery-item-${index + 1}`} key={item.src}><img src={item.src} alt={item.alt} loading="lazy" /><figcaption><span>FUSIÓN ZAC</span><span>0{index + 1}</span></figcaption></figure>)}</div>
+          <div className="gallery-heading"><div><span className="section-index">MOMENTOS FUSIÓN</span><h2>Así se vive.</h2></div><a className="under-link" href={socials.tiktok} target="_blank" rel="noreferrer">Más en TikTok <Arrow diagonal /></a></div>
+          <div className="gallery-grid">{gallery.map((item) => <figure className="gallery-item" key={item.src}><img src={item.src} alt={item.alt} loading="lazy" /><figcaption><span>FUSIÓN ZAC</span><span>✳</span></figcaption></figure>)}</div>
         </section>
 
         <section className="contact" id="contacto">
-          <div className="contact-top"><span className="section-index">04 / HAGAMOS QUE PASE</span><span>✳ ZACATECAS, MÉXICO</span></div>
+          <div className="contact-top"><span className="section-index">HAGAMOS QUE PASE</span><span>✳ ZACATECAS, MÉXICO</span></div>
           <div className="contact-main"><h2>Tu evento<br />empieza <em>aquí.</em></h2><a className="contact-button" href={whatsapp} target="_blank" rel="noreferrer"><span className="wa-icon" aria-hidden="true">◉</span><span><small>ESCRÍBENOS POR WHATSAPP</small><strong>492 161 4598</strong></span><Arrow diagonal /></a></div>
           <div className="contact-bottom"><span>FUSIÓN ZAC · CERCA DE TI SIEMPRE</span><div className="social-links"><a href={socials.facebook} target="_blank" rel="noreferrer">Facebook <Arrow diagonal /></a><a href={socials.instagram} target="_blank" rel="noreferrer">Instagram <Arrow diagonal /></a><a href={socials.tiktok} target="_blank" rel="noreferrer">TikTok <Arrow diagonal /></a></div></div>
         </section>
