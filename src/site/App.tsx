@@ -94,9 +94,9 @@ function App() {
           </div>
           <div className="seasonal-player">
             <span className="player-label">PROMO NAVIDEÑA · FUSIÓN ZAC</span>
-            <video controls playsInline preload="metadata" aria-label="Video promocional de Navidad y posadas">
-              <source src={asset('videos/promocion-navidad.mp4')} type="video/mp4" />
-              Tu navegador no puede reproducir este video. <a href={asset('videos/promocion-navidad.mp4')}>Abrir video</a>.
+            <video controls playsInline preload="auto" poster={asset('assets/logo.jpg')} aria-label="Video promocional de Navidad y posadas">
+              <source src={asset('assets/videos/promocion-navidad.mp4')} type="video/mp4" />
+              Tu navegador no puede reproducir este video. <a href={asset('assets/videos/promocion-navidad.mp4')}>Abrir video</a>.
             </video>
           </div>
         </section>
