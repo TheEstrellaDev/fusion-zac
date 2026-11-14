@@ -22,7 +22,7 @@ const gallery = [
   { src: asset('images/fusion-zac-baile-1.webp'), alt: 'Amigos bailando en una celebración con luces cálidas y azules' },
   { src: asset('images/fusion-zac-baile-2.webp'), alt: 'Invitados disfrutando juntos la pista de baile' },
   { src: asset('images/fusion-zac-hero.webp'), alt: 'Público bailando junto a la Catedral de Zacatecas iluminada' },
-  { src: asset('assets/866081418_122238713222318142_2344235169799620781_n (1).jpg'), alt: 'Fusión Zac y Zacatecas al atardecer' },
+  { src: asset('assets/866081418_122238713222318142_2344235169799620781_n%20(1).jpg'), alt: 'Fusión Zac y Zacatecas al atardecer' },
 ]
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -95,7 +95,6 @@ function App() {
         </section>
 
         <section className="featured-package" id="paquete-xv">
-          <div className="featured-art"><img src={asset('assets/87bd3d2b-721c-4bb9-803f-5f0fcb2d915f.jpg')} alt="Paquete para quinceañera y boda de Fusión Zac, $13,700" loading="lazy" /></div>
           <div className="featured-copy">
             <span className="section-index">EL PAQUETE ESTRELLA ✦ XV AÑOS Y BODAS</span>
             <h2>Una noche<br />de <em>realeza.</em></h2>
