@@ -50,8 +50,7 @@ function App() {
       audio.play().catch(() => { started = false })
     }
     startAudio()
-    window.addEventListener('pointerdown', startAudio, { once: true })
-    window.addEventListener('keydown', startAudio, { once: true })
+    window.addEventListener('scroll', startAudio, { once: true, passive: true })
 
     let dismissTimer: ReturnType<typeof setTimeout> | undefined
     const showTimer = window.setTimeout(() => {
@@ -59,8 +58,7 @@ function App() {
       dismissTimer = window.setTimeout(() => setShowFacebookNudge(false), 18000)
     }, 18000)
     return () => {
-      window.removeEventListener('pointerdown', startAudio)
-      window.removeEventListener('keydown', startAudio)
+      window.removeEventListener('scroll', startAudio)
       audio.pause()
       audio.currentTime = 0
       window.clearTimeout(showTimer)
