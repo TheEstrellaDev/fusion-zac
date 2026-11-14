@@ -66,3 +66,28 @@ footer{background:#18243a;color:#b9c0ca}.footer-brand{color:#fff}.footer-brand b
 @media(max-width:390px){.hero{min-height:580px}.hero h1{font-size:58px}.gallery-grid{grid-template-rows:150px 150px auto}.gallery-item:first-child{height:210px}.contact h2{font-size:63px}}
 
 @media(min-width:761px){.gallery-grid{grid-template-columns:1.15fr 1fr 1fr;grid-template-rows:220px 220px}.gallery-item:first-child{grid-row:span 2}}
+
+/* Contraste reforzado para que el titular del hero destaque sobre la fotografía. */
+.hero h1{color:#fff;font-weight:800;text-shadow:0 3px 26px rgba(8,20,40,.55)}
+.hero h1 em{color:#ffe08a;text-shadow:0 2px 22px rgba(11,24,42,.55)}
+.hero-copy{font-weight:500;text-shadow:0 1px 10px rgba(8,20,40,.7)}
+.hero .button-lime{font-weight:700;box-shadow:0 5px 22px rgba(8,20,40,.23)}
+.intro-aside p,.section-heading>p,.service-row p{color:#4e5665}
+.intro-label,.section-index{font-size:10px;font-weight:700}
+@media(max-width:760px){
+  .site-header nav{font-size:11px;font-weight:600}
+  .header-cta{font-size:10px;font-weight:700}
+  .hero-shade{background:linear-gradient(90deg,rgba(12,27,49,.92) 0%,rgba(12,27,49,.8) 58%,rgba(12,27,49,.53) 100%),linear-gradient(0deg,rgba(12,27,49,.84),rgba(12,27,49,.23) 65%,rgba(12,27,49,.62))}
+  .hero h1{font-size:clamp(62px,15vw,88px);line-height:.98;margin:23px 0 20px}
+  .hero h1 em{color:#ffe08a}
+  .hero-copy{font-size:16px;font-weight:600;line-height:1.55;max-width:300px}
+  .hero .eyebrow{font-size:10px;font-weight:700;letter-spacing:.16em}
+  .hero .button-lime{font-size:13px}
+  .text-link{font-size:13px;font-weight:600}
+  .intro-label,.section-index{font-size:10px}
+  .intro-aside p,.section-heading>p{font-size:15px;font-weight:500;line-height:1.75}
+  .service-row h3{font-size:27px;font-weight:700}
+  .service-row p{font-size:13px;font-weight:500;line-height:1.65}
+  .contact-button strong{font-size:17px}
+  .contact-button small{font-size:8px}
+}
