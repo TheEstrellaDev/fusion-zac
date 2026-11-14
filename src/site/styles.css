@@ -26,3 +26,12 @@
 .facebook-nudge{position:fixed;z-index:20;right:22px;bottom:22px;max-width:min(370px,calc(100vw - 28px));padding:0 30px 0 0;border-radius:8px;background:#fff;color:#17243d;box-shadow:0 14px 40px rgba(0,0,0,.26);opacity:0;visibility:hidden;transform:translate3d(0,16px,0);transition:opacity .35s ease,transform .35s ease,visibility .35s;pointer-events:none}.facebook-nudge.is-visible{opacity:1;visibility:visible;transform:translate3d(0,0,0);pointer-events:auto}.facebook-nudge-link{display:flex;align-items:center;gap:12px;padding:14px 6px 14px 15px}.facebook-icon{display:grid;place-items:center;flex:0 0 35px;height:35px;border-radius:50%;background:#1877f2;color:white;font:bold 27px Arial,sans-serif}.facebook-nudge-link small,.facebook-nudge-link strong{display:block}.facebook-nudge-link small{font-size:8px;letter-spacing:.12em;color:#68778c;margin-bottom:4px}.facebook-nudge-link strong{font:700 13px var(--display);white-space:nowrap}.facebook-nudge-link>.arrow{color:#1877f2;margin-left:0}.facebook-nudge-close{position:absolute;top:4px;right:5px;border:0;background:transparent;color:#68778c;font-size:19px;line-height:1;padding:3px;cursor:pointer}.facebook-nudge-close:hover{color:#17243d}
 @media(max-width:480px){.facebook-nudge{right:12px;bottom:12px}.facebook-nudge-link{gap:9px;padding:12px 4px 12px 12px}.facebook-icon{flex-basis:32px;height:32px;font-size:24px}.facebook-nudge-link strong{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.facebook-nudge{transition:none}}
+/* Keep the Posadas player visible; prior promo rules hid a legacy video class. */
+.seasonal-player{position:relative;z-index:2;display:block;visibility:visible;opacity:1;overflow:hidden;border-radius:6px}
+.seasonal-player video{position:relative;z-index:1;min-height:300px;visibility:visible;opacity:1}
+.seasonal-player video::-webkit-media-controls{opacity:1}
+.seasonal-video{display:none!important}
+.statement-bg{z-index:0!important;pointer-events:none}
+.statement-bg video{z-index:0}
+.statement-bg:after{z-index:1}
+.statement>*:not(.statement-bg){z-index:2}
