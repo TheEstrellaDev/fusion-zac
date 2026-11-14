@@ -60,7 +60,7 @@ function App() {
             </div>
           </div>
           <div className="hero-meta"><span>FUSIÓN ZACATECAS</span><span>HECHO PARA CELEBRAR <b>✳</b></span></div>
-          <a className="scroll-cue" href="#servicios" aria-label="Desplazarse a servicios"><span /> SCROLL</a>
+          <a className="scroll-cue" href="#paquetes" aria-label="Desplazarse a paquetes"><span /> SCROLL</a>
         </section>
 
         <section className="intro section-wrap" id="nosotros">
@@ -70,6 +70,17 @@ function App() {
             <div className="intro-aside"><p>Sonido, iluminación, robots LED y experiencias para que tus XV años, boda o celebración se sientan hasta el último rincón.</p><a className="under-link" href={socials.instagram} target="_blank" rel="noreferrer">Síguenos en Instagram <Arrow diagonal /></a></div>
           </div>
           <div className="intro-bottom"><span>SONIDO FUSIÓN ZAC</span><span>GUADALUPE, ZACATECAS <b>✳</b></span></div>
+        </section>
+
+        <section className="packages section-wrap" id="paquetes" aria-labelledby="packages-title">
+          <div className="section-heading"><div><span className="section-index">PAQUETES LUZ Y SONIDO · 2026</span><h2 id="packages-title">Tú pones el motivo.<br /><em>Nosotros el ambiente.</em></h2></div><p>Elige el paquete que va con tu fiesta y arma tu cotización por WhatsApp.</p></div>
+          <div className="package-grid">{packages.map((item) => <article className={`package-card package-${item.number}`} key={item.number}>
+            <div className="package-top"><span className="package-number">{item.number} · {item.hours}</span><span className="package-spark">✳</span></div>
+            <h3>{item.name}</h3><div className="package-price">{item.price}<small> MXN</small></div>
+            <ul>{item.items.map((feature) => <li key={feature}>{feature}</li>)}</ul>
+            <div className="package-foot"><span>{item.note}</span><a href={chat(`Hola, me interesa el ${item.name} de ${item.price}. ¿Está disponible para mi fecha?`)} target="_blank" rel="noreferrer" aria-label={`Cotizar ${item.name}`}>Cotizar <Arrow diagonal /></a></div>
+          </article>)}</div>
+          <p className="package-note"><b>Arma tu fiesta a tu manera:</b> paquetes 1 y 2 apartan fecha con $500; paquetes 3 y 4 con $1,000. Robot, carrito de shots y otros personajes también se pueden rentar por separado. Pantalla, cabina de fotos, cabezón de la máscara, show de la Monja y pirotecnia fría disponibles con costo extra. <b>Contamos con facturación.</b></p>
         </section>
 
         <section className="services section-wrap" id="servicios">
@@ -95,17 +106,6 @@ function App() {
             </ul>
             <a className="button button-lime" href={chat('Hola, quiero cotizar el Paquete Estrella de $13,700 para XV años / boda.') } target="_blank" rel="noreferrer">Quiero esta fiesta <Arrow diagonal /></a>
           </div>
-        </section>
-
-        <section className="packages section-wrap" aria-labelledby="packages-title">
-          <div className="section-heading"><div><span className="section-index">PAQUETES LUZ Y SONIDO · 2026</span><h2 id="packages-title">Tú pones el motivo.<br /><em>Nosotros el ambiente.</em></h2></div><p>Elige el paquete que va con tu fiesta y arma tu cotización por WhatsApp.</p></div>
-          <div className="package-grid">{packages.map((item) => <article className={`package-card package-${item.number}`} key={item.number}>
-            <div className="package-top"><span className="package-number">{item.number} · {item.hours}</span><span className="package-spark">✳</span></div>
-            <h3>{item.name}</h3><div className="package-price">{item.price}<small> MXN</small></div>
-            <ul>{item.items.map((feature) => <li key={feature}>{feature}</li>)}</ul>
-            <div className="package-foot"><span>{item.note}</span><a href={chat(`Hola, me interesa el ${item.name} de ${item.price}. ¿Está disponible para mi fecha?`)} target="_blank" rel="noreferrer" aria-label={`Cotizar ${item.name}`}>Cotizar <Arrow diagonal /></a></div>
-          </article>)}</div>
-          <p className="package-note"><b>Arma tu fiesta a tu manera:</b> paquetes 1 y 2 apartan fecha con $500; paquetes 3 y 4 con $1,000. Robot, carrito de shots y otros personajes también se pueden rentar por separado. Pantalla, cabina de fotos, cabezón de la máscara, show de la Monja y pirotecnia fría disponibles con costo extra. <b>Contamos con facturación.</b></p>
         </section>
 
         <section className="statement" aria-label="Una celebración para recordar">
