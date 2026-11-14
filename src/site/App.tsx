@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 const phone = '524921614598'
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
 const chat = (text: string) => `https://wa.me/${phone}?text=${encodeURIComponent(text)}`
@@ -36,6 +38,20 @@ function Arrow({ diagonal = false }: { diagonal?: boolean }) {
 }
 
 function App() {
+  const [showFacebookNudge, setShowFacebookNudge] = useState(false)
+
+  useEffect(() => {
+    let dismissTimer: ReturnType<typeof setTimeout> | undefined
+    const showTimer = window.setTimeout(() => {
+      setShowFacebookNudge(true)
+      dismissTimer = window.setTimeout(() => setShowFacebookNudge(false), 9000)
+    }, 18000)
+    return () => {
+      window.clearTimeout(showTimer)
+      if (dismissTimer) window.clearTimeout(dismissTimer)
+    }
+  }, [])
+
   return (
     <>
       <header className="site-header">
@@ -161,6 +177,14 @@ function App() {
       </main>
 
       <footer><a className="footer-brand" href="#inicio">FUSIÓN <b>ZAC</b></a><span>QUE SE ARME <b>✳</b></span><span>© {new Date().getFullYear()} FUSIÓN ZAC</span></footer>
+      <aside className={`facebook-nudge${showFacebookNudge ? ' is-visible' : ''}`} aria-label="Videos de Fusión Zac en Facebook" aria-hidden={!showFacebookNudge}>
+        <a className="facebook-nudge-link" href={socials.facebook} target="_blank" rel="noreferrer" tabIndex={showFacebookNudge ? 0 : -1}>
+          <span className="facebook-icon" aria-hidden="true">f</span>
+          <span><small>MÁS VIDEOS Y FIESTA</small><strong>Encuéntranos en Facebook</strong></span>
+          <Arrow diagonal />
+        </a>
+        <button className="facebook-nudge-close" type="button" aria-label="Cerrar aviso de Facebook" tabIndex={showFacebookNudge ? 0 : -1} onClick={() => setShowFacebookNudge(false)}>×</button>
+      </aside>
     </>
   )
 }
