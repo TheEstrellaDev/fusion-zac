@@ -25,6 +25,12 @@ const gallery = [
   { src: asset('assets/866081418_122238713222318142_2344235169799620781_n%20(1).jpg'), alt: 'Fusión Zac y Zacatecas al atardecer' },
 ]
 
+const videos = [
+  { src: 'videos/bailando-carritoshots-robotled.mp4', title: 'Baile, carrito de shots y robot LED' },
+  { src: 'videos/gente-bailando.mp4', title: 'La pista se prende' },
+  { src: 'videos/gente-bailando-2.mp4', title: 'Así se vive la fiesta' },
+]
+
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return <span aria-hidden="true" className="arrow">{diagonal ? '↗' : '→'}</span>
 }
@@ -47,6 +53,19 @@ function App() {
       </header>
 
       <main>
+        <section className="seasonal-promo" aria-labelledby="seasonal-title">
+          <video className="seasonal-video" controls loop playsInline preload="metadata" aria-label="Promoción navideña de Fusión Zac para posadas" poster={asset('assets/logo.jpg')}>
+            <source src={asset('videos/promocion-navidad.mp4')} type="video/mp4" />
+          </video>
+          <div className="seasonal-shade" />
+          <div className="seasonal-content">
+            <span className="seasonal-kicker">🎄 YA VIENEN LAS POSADAS 🎄</span>
+            <h2 id="seasonal-title">Esta Navidad,<br /><em>que no pare la fiesta.</em></h2>
+            <p>Sonido, luces y ambiente para celebrar juntos esta temporada.</p>
+            <a className="button button-lime" href={chat('Hola, quiero información para mi posada navideña.')} target="_blank" rel="noreferrer">Cotiza tu posada <Arrow diagonal /></a>
+          </div>
+        </section>
+
         <section className="hero" id="inicio" aria-labelledby="hero-title">
           <img className="hero-image" src={asset('images/fusion-zac-hero.webp')} alt="Personas bailando en una celebración junto a la Catedral de Zacatecas iluminada" fetchPriority="high" />
           <div className="hero-shade" />
@@ -70,6 +89,17 @@ function App() {
             <div className="intro-aside"><p>Sonido, iluminación, robots LED y experiencias para que tus XV años, boda o celebración se sientan hasta el último rincón.</p><a className="under-link" href={socials.instagram} target="_blank" rel="noreferrer">Síguenos en Instagram <Arrow diagonal /></a></div>
           </div>
           <div className="intro-bottom"><span>SONIDO FUSIÓN ZAC</span><span>GUADALUPE, ZACATECAS <b>✳</b></span></div>
+        </section>
+
+        <section className="graduation-promo" aria-labelledby="graduation-title">
+          <img src={asset('assets/promocion9000graduaciones.jpeg')} alt="Paquete de graduaciones Fusión Zac: robot LED, 5 horas de sonido profesional y cabina de fotos por $9,000" loading="lazy" />
+          <div className="graduation-overlay">
+            <span className="section-index">CELEBRA TU GRAN LOGRO</span>
+            <h2 id="graduation-title">Paquete de<br /><em>graduaciones</em></h2>
+            <p>Robot LED, 5 horas de sonido profesional y cabina de fotos.</p>
+            <strong>$9,000 <small>MXN</small></strong>
+            <a className="button button-lime" href={chat('Hola, quiero cotizar el paquete de graduaciones de $9,000.')} target="_blank" rel="noreferrer">Cotiza tu graduación <Arrow diagonal /></a>
+          </div>
         </section>
 
         <section className="packages section-wrap" id="paquetes" aria-labelledby="packages-title">
@@ -108,7 +138,7 @@ function App() {
         </section>
 
         <section className="statement" aria-label="Una celebración para recordar">
-          <div className="statement-bg"><img src={asset('images/fusion-zac-hero.webp')} alt="" loading="lazy" /></div>
+          <div className="statement-bg"><video autoPlay muted loop playsInline preload="none" aria-hidden="true" poster={asset('images/fusion-zac-hero.webp')}><source src={asset('videos/gente-bailando.mp4')} type="video/mp4" /></video></div>
           <p className="eyebrow"><span className="eyebrow-dot" /> QUE SE OIGA HASTA EL CERRO</p>
           <h2>Sube el volumen.<br /><em>Saca los pasos.</em></h2>
           <a className="button button-outline" href={whatsapp} target="_blank" rel="noreferrer">Planeemos tu fecha <Arrow diagonal /></a>
@@ -117,6 +147,7 @@ function App() {
         <section className="gallery section-wrap" id="galeria">
           <div className="gallery-heading"><div><span className="section-index">MOMENTOS FUSIÓN</span><h2>Así se arma.</h2></div><a className="under-link" href={socials.tiktok} target="_blank" rel="noreferrer">Más en TikTok <Arrow diagonal /></a></div>
           <div className="gallery-grid">{gallery.map((item) => <figure className="gallery-item" key={item.src}><img src={item.src} alt={item.alt} loading="lazy" /><figcaption><span>FUSIÓN ZAC</span><span>✳</span></figcaption></figure>)}</div>
+          <div className="video-gallery"><div className="video-gallery-heading"><span className="section-index">EN VIDEO</span><p>Momentos de la fiesta, para ver y volver a vivir.</p></div><div className="video-grid">{videos.map((video) => <article className="video-card" key={video.src}><video controls playsInline preload="none" aria-label={video.title}><source src={asset(video.src)} type="video/mp4" /></video><h3>{video.title}</h3></article>)}</div></div>
         </section>
 
         <section className="contact" id="contacto">
