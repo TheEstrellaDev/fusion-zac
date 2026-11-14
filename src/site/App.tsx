@@ -49,7 +49,7 @@ function App() {
           <a href="#galeria">Galería</a>
           <a href="#contacto">Contacto</a>
         </nav>
-        <a className="header-cta" href={whatsapp} target="_blank" rel="noreferrer">Cotiza tu evento <Arrow diagonal /></a>
+        <a className="header-cta" href={socials.facebook} target="_blank" rel="noreferrer">Visítanos en Facebook <Arrow diagonal /></a>
       </header>
 
       <main>
@@ -141,7 +141,7 @@ function App() {
           <div className="statement-bg"><video autoPlay muted loop playsInline preload="none" aria-hidden="true" poster={asset('images/fusion-zac-hero.webp')}><source src={asset('videos/gente-bailando.mp4')} type="video/mp4" /></video></div>
           <p className="eyebrow"><span className="eyebrow-dot" /> QUE SE OIGA HASTA EL CERRO</p>
           <h2>Sube el volumen.<br /><em>Saca los pasos.</em></h2>
-          <a className="button button-outline" href={whatsapp} target="_blank" rel="noreferrer">Planeemos tu fecha <Arrow diagonal /></a>
+          <a className="button button-outline" href={socials.facebook} target="_blank" rel="noreferrer">Síguenos en Facebook <Arrow diagonal /></a>
         </section>
 
         <section className="gallery section-wrap" id="galeria">
