@@ -41,12 +41,28 @@ function App() {
   const [showFacebookNudge, setShowFacebookNudge] = useState(false)
 
   useEffect(() => {
+    const audio = new Audio(asset('assets/fusion-zac-presentacion.mp3'))
+    audio.preload = 'auto'
+    let started = false
+    const startAudio = () => {
+      if (started) return
+      started = true
+      audio.play().catch(() => { started = false })
+    }
+    startAudio()
+    window.addEventListener('pointerdown', startAudio, { once: true })
+    window.addEventListener('keydown', startAudio, { once: true })
+
     let dismissTimer: ReturnType<typeof setTimeout> | undefined
     const showTimer = window.setTimeout(() => {
       setShowFacebookNudge(true)
-      dismissTimer = window.setTimeout(() => setShowFacebookNudge(false), 9000)
+      dismissTimer = window.setTimeout(() => setShowFacebookNudge(false), 18000)
     }, 18000)
     return () => {
+      window.removeEventListener('pointerdown', startAudio)
+      window.removeEventListener('keydown', startAudio)
+      audio.pause()
+      audio.currentTime = 0
       window.clearTimeout(showTimer)
       if (dismissTimer) window.clearTimeout(dismissTimer)
     }
@@ -63,6 +79,7 @@ function App() {
           <a href="#servicios">Servicios</a>
           <a href="#paquetes">Paquetes</a>
           <a href="#galeria">Galería</a>
+          <a href="#resenas">Reseñas</a>
           <a href="#contacto">Contacto</a>
         </nav>
         <a className="header-cta" href={socials.facebook} target="_blank" rel="noreferrer">Visítanos en Facebook <Arrow diagonal /></a>
@@ -167,6 +184,23 @@ function App() {
           <div className="gallery-heading"><div><span className="section-index">MOMENTOS FUSIÓN</span><h2>Así se arma.</h2></div><a className="under-link" href={socials.tiktok} target="_blank" rel="noreferrer">Más en TikTok <Arrow diagonal /></a></div>
           <div className="gallery-grid">{gallery.map((item) => <figure className="gallery-item" key={item.src}><img src={item.src} alt={item.alt} loading="lazy" /><figcaption><span>FUSIÓN ZAC</span><span>✳</span></figcaption></figure>)}</div>
           <div className="video-gallery"><div className="video-gallery-heading"><span className="section-index">EN VIDEO</span><p>Momentos de la fiesta, para ver y volver a vivir.</p></div><div className="video-grid">{videos.map((video) => <article className="video-card" key={video.src}><video controls playsInline preload="metadata" aria-label={video.title}><source src={asset(`assets/${video.src}`)} type="video/mp4" />Tu navegador no puede reproducir este video. <a href={asset(`assets/${video.src}`)}>Abrir video</a>.</video><h3>{video.title}</h3></article>)}</div></div>
+        </section>
+
+        <section className="reviews section-wrap" id="resenas" aria-labelledby="reviews-title">
+          <div className="section-heading"><div><span className="section-index">LO QUE SE SIENTE EN LA PISTA</span><h2 id="reviews-title">Fiestas que<br /><em>se quedan.</em></h2></div><p>Comentarios de muestra para presentar la sección. Sustitúyelos por reseñas reales de tus clientes.</p></div>
+          <div className="reviews-grid">
+            {[
+              { quote: 'Desde que llegaron se notó la diferencia. El sonido estuvo muy bien y el robot fue lo que más disfrutaron mis sobrinos.', name: 'Mariana R.', event: 'XV años · Guadalupe' },
+              { quote: 'Nos ayudaron a armar todo para la posada y estuvieron pendientes de los horarios. La pista se llenó toda la noche.', name: 'José Luis M.', event: 'Posada · Zacatecas' },
+              { quote: 'Contratamos el paquete 3 para la boda de mi hermana. Buen ambiente, luces increíbles y muy atentos con la familia.', name: 'Karla G.', event: 'Boda · Morelos' },
+              { quote: 'La cotización fue clara y nos acomodaron el paquete a lo que necesitábamos. Todos terminaron bailando.', name: 'Andrea P.', event: 'Cumpleaños · Guadalupe' },
+              { quote: 'El carrito de shots y la música fueron un éxito. Se sintió muy completa la fiesta y todo salió a tiempo.', name: 'Miguel A.', event: 'Graduación · Zacatecas' },
+            ].map((review) => <article className="review-card" key={review.name}>
+              <div className="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <blockquote>“{review.quote}”</blockquote>
+              <div className="review-by"><strong>{review.name}</strong><span>{review.event}</span></div>
+            </article>)}
+          </div>
         </section>
 
         <section className="contact" id="contacto">

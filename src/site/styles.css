@@ -35,3 +35,13 @@
 .statement-bg video{z-index:0}
 .statement-bg:after{z-index:1}
 .statement>*:not(.statement-bg){z-index:2}
+.reviews{padding-top:92px;padding-bottom:96px;background:#f4e8d8;color:#281a14}
+.reviews .section-heading{margin-bottom:34px}
+.reviews .section-heading>p{color:#75665a}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.review-card{min-height:220px;padding:24px;background:#fffaf2;border:1px solid rgba(47,32,23,.12);box-shadow:0 8px 20px rgba(77,44,24,.05);display:flex;flex-direction:column}
+.review-stars{color:#d34d35;letter-spacing:.16em;font-size:13px}
+.review-card blockquote{margin:18px 0 22px;font-size:14px;line-height:1.75;color:#46372d;flex:1}
+.review-by{border-top:1px solid rgba(47,32,23,.13);padding-top:13px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.review-by strong{font:800 12px var(--display)}.review-by span{font-size:10px;color:#827164;text-align:right}
+@media(max-width:760px){.reviews{padding-top:70px;padding-bottom:72px}.reviews-grid{grid-template-columns:1fr}.review-card{min-height:0;padding:20px}.review-card blockquote{margin:14px 0 18px}}
