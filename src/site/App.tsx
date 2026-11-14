@@ -1,6 +1,7 @@
 const phone = '524921614598'
 const message = encodeURIComponent('Hola, quiero información para mi evento.')
 const whatsapp = `https://wa.me/${phone}?text=${message}`
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
 
 const socials = {
   instagram: 'https://www.instagram.com/sonidofusionzac/',
@@ -15,9 +16,9 @@ const services = [
 ]
 
 const gallery = [
-  { src: '/assets/859683142_122238164402318142_7978589201987121749_n.jpg', alt: 'Promoción de Fusión Zac con equipo de sonido e iluminación' },
-  { src: '/assets/866081418_122238713222318142_2344235169799620781_n.jpg', alt: 'Fusión Zac en Zacatecas con su identidad gráfica y redes sociales' },
-  { src: '/assets/866081418_122238713222318142_2344235169799620781_n%20(1).jpg', alt: 'Arte promocional de Fusión Zac' },
+  { src: asset('assets/859683142_122238164402318142_7978589201987121749_n.jpg'), alt: 'Promoción de Fusión Zac con equipo de sonido e iluminación' },
+  { src: asset('assets/866081418_122238713222318142_2344235169799620781_n.jpg'), alt: 'Fusión Zac en Zacatecas con su identidad gráfica y redes sociales' },
+  { src: asset('assets/866081418_122238713222318142_2344235169799620781_n (1).jpg'), alt: 'Arte promocional de Fusión Zac' },
 ]
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -29,7 +30,7 @@ function App() {
     <>
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Fusión Zac, inicio">
-          <img src="/assets/logolimpio.jpg" alt="" />
+          <img src={asset('assets/logolimpio.jpg')} alt="" />
           <span>FUSIÓN <b>ZAC</b></span>
         </a>
         <nav aria-label="Navegación principal">
@@ -43,7 +44,7 @@ function App() {
 
       <main>
         <section className="hero" id="inicio" aria-labelledby="hero-title">
-          <img className="hero-image" src="/images/fusion-zac-hero.png" alt="Personas bailando en una celebración junto a la Catedral de Zacatecas iluminada" fetchPriority="high" />
+          <img className="hero-image" src={asset('images/fusion-zac-hero.png')} alt="Personas bailando en una celebración junto a la Catedral de Zacatecas iluminada" fetchPriority="high" />
           <div className="hero-shade" />
           <div className="hero-content">
             <p className="eyebrow"><span className="eyebrow-dot" /> SONIDO · LUZ · CELEBRACIÓN</p>
@@ -73,7 +74,7 @@ function App() {
         </section>
 
         <section className="statement" aria-label="Una celebración para recordar">
-          <div className="statement-bg" />
+          <div className="statement-bg"><img src={asset('images/fusion-zac-hero.png')} alt="" loading="lazy" /></div>
           <p className="eyebrow"><span className="eyebrow-dot" /> HAY NOCHES QUE SE QUEDAN CONTIGO</p>
           <h2>Sube el volumen.<br /><em>Vive el momento.</em></h2>
           <a className="button button-outline" href={whatsapp} target="_blank" rel="noreferrer">Planeemos tu fecha <Arrow diagonal /></a>
