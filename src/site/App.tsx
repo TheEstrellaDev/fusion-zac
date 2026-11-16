@@ -78,6 +78,7 @@ function App() {
           <a href="#paquetes">Paquetes</a>
           <a href="#galeria">Galería</a>
           <a href="#resenas">Reseñas</a>
+          <a href="#preguntas">Preguntas</a>
           <a href="#contacto">Contacto</a>
         </nav>
         <a className="header-cta" href={socials.facebook} target="_blank" rel="noreferrer">Visítanos en Facebook <Arrow diagonal /></a>
@@ -119,8 +120,8 @@ function App() {
         <section className="intro section-wrap" id="nosotros">
           <div className="intro-label">CERCA DE TI SIEMPRE · GUADALUPE, ZACATECAS</div>
           <div className="intro-main">
-            <h2>La música reúne.<br /><span>La fiesta la hacemos</span><br />entre todos.</h2>
-            <div className="intro-aside"><p>Sonido, iluminación, robots LED y experiencias para que tus XV años, boda o celebración se sientan hasta el último rincón.</p><a className="under-link" href={socials.instagram} target="_blank" rel="noreferrer">Síguenos en Instagram <Arrow diagonal /></a></div>
+            <h2>¿Quiénes<br /><span>somos?</span></h2>
+            <div className="intro-aside"><p>Somos Fusión ZAC, un proyecto con 3 años de trayectoria creado por Oscar Iván Uranday Soto, mejor conocido como “el Frijol”, orgullosamente nacido en el pueblo mágico de Guadalupe, Zacatecas.</p><p>Somos una empresa que nació con mucho entusiasmo y que hoy en día sigue creciendo y proponiendo nuevas ideas. Nuestro compromiso es mejorar siempre para ofrecerte un trabajo de calidad en cada evento. Gracias a tu confianza, hemos logrado llegar hasta aquí y ¡vamos por mucho más!</p><a className="under-link" href={socials.instagram} target="_blank" rel="noreferrer">Síguenos en Instagram <Arrow diagonal /></a></div>
           </div>
           <div className="intro-bottom"><span>SONIDO FUSIÓN ZAC</span><span>GUADALUPE, ZACATECAS <b>✳</b></span></div>
         </section>
@@ -198,6 +199,17 @@ function App() {
               <blockquote>“{review.quote}”</blockquote>
               <div className="review-by"><strong>{review.name}</strong><span>{review.event}</span></div>
             </article>)}
+          </div>
+        </section>
+
+        <section className="faq section-wrap" id="preguntas" aria-labelledby="faq-title">
+          <div className="section-heading"><div><span className="section-index">ANTES DE TU EVENTO</span><h2 id="faq-title">Preguntas<br /><em>frecuentes.</em></h2></div><p>Todo lo que necesitas saber para organizar tu evento con Fusión ZAC.</p></div>
+          <div className="faq-list">
+            <details className="faq-item"><summary>¿Trabajan en todo Zacatecas?</summary><p>Sí, cubrimos los 58 municipios del estado. Ya hemos recorrido todo Zacatecas y tenemos la flexibilidad de trabajar en cualquier lugar, incluso al aire libre o en la calle.</p></details>
+            <details className="faq-item"><summary>¿Cuánto tiempo antes tengo que reservar mi fecha?</summary><p>Lo ideal es hacerlo con la mayor anticipación posible para asegurar la disponibilidad. Además, si contratas este año, se te respetan los precios actuales aunque el evento sea el próximo año. Recuerda que necesitamos los detalles de las canciones (como el vals) al menos una semana antes del evento.</p></details>
+            <details className="faq-item"><summary>¿Necesito pagar un anticipo para apartar la fecha?</summary><p>Sí, para apartar la fecha y elaborar el contrato se requiere un anticipo de $500 o $1,000, según el paquete o lo que se acuerde. El resto se paga el día del evento.</p></details>
+            <details className="faq-item"><summary>¿Ustedes se encargan de la instalación en el lugar del evento?</summary><p>¡Claro! Siempre llegamos con mucha anticipación (normalmente una hora antes) para instalar todo el equipo y estar listos para comenzar puntualmente a la hora acordada.</p></details>
+            <details className="faq-item"><summary>¿Qué pasa si se cancela mi evento?</summary><p>Si tú cancelas, no hay devolución del anticipo, a menos que sea por causas de fuerza mayor. Si nosotros cancelamos, se te devuelve el anticipo íntegro. También existe la opción de cambiar la fecha, siempre que esté disponible.</p></details>
           </div>
         </section>
 

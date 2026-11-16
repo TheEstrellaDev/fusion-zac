@@ -45,3 +45,14 @@
 .review-by{border-top:1px solid rgba(47,32,23,.13);padding-top:13px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
 .review-by strong{font:800 12px var(--display)}.review-by span{font-size:10px;color:#827164;text-align:right}
 @media(max-width:760px){.reviews{padding-top:70px;padding-bottom:72px}.reviews-grid{grid-template-columns:1fr}.review-card{min-height:0;padding:20px}.review-card blockquote{margin:14px 0 18px}}
+.faq{padding-top:92px;padding-bottom:96px;background:#201915;color:#fff5e9}
+.faq .section-index{color:var(--yellow)}
+.faq .section-heading>p{color:#c6b6a7}
+.faq-list{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line);padding:0 4px}
+.faq-item summary{position:relative;cursor:pointer;list-style:none;padding:23px 44px 23px 0;font:700 clamp(17px,2vw,23px) var(--display);letter-spacing:-.025em}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:after{content:'+';position:absolute;right:8px;top:50%;transform:translateY(-50%);font:400 28px 'DM Sans',sans-serif;color:var(--yellow);transition:transform .2s}
+.faq-item[open] summary:after{transform:translateY(-50%) rotate(45deg)}
+.faq-item p{max-width:850px;margin:0;padding:0 45px 22px 0;color:#c6b6a7;font-size:14px;line-height:1.8}
+@media(max-width:760px){.faq{padding-top:70px;padding-bottom:72px}.faq-item summary{font-size:17px;padding:20px 38px 20px 0}.faq-item p{font-size:13px;padding-right:15px}.site-header nav{justify-content:flex-start;gap:19px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;padding-left:5vw;padding-right:5vw}.site-header nav::-webkit-scrollbar{display:none}}
